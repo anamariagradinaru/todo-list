@@ -1,19 +1,19 @@
 // Selectors
-const todoInput = document.querySelector('.todo-input');
-const todoButton = document.querySelector('.todo-button');
-const todoList = document.querySelector('.todo-list');
+const todoInput = document.querySelector(".todo-input");
+const todoButton = document.querySelector(".todo-button");
+const todoList = document.querySelector(".todo-list");
 
 //Event Listeners
-todoButton.addEventListener('click', addTodo);
-todoButton.addEventListener('scroll', doSomething);
+todoButton.addEventListener("click", addTodo);
+
 
 //Functions
 function addTodo(event) {
     //Prevent form from submitting
     event.preventDefault();
     //Todo DIV
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
     //Create li
     const newTodo = document.createElement('li');
     newTodo.innerText = 'Hey';
@@ -21,13 +21,20 @@ function addTodo(event) {
     todoDiv.appendChild(newTodo);
     //CHECK MARK BUTTON
     const completedButton = document.createElement('button');
-    completedButton.innerText ='<i class="fas fa-check"> </i>';
+    completedButton.innerHTML ='<i class="fas fa-check"> </i>';
     completedButton.classList.add("complete-btn");
     todoDiv.appendChild(completedButton);
 
 //CHECK trash BUTTON
 const trashButton = document.createElement('button');
 trashButton.innerText ='<i class="fas fa-trash"> </i>';
-trashButton.classList.add("complete-btn");
+trashButton.classList.add("trash-btn");
 todoDiv.appendChild(trashButton);
+
+//APPEND TO LIST
+todoList.appendChild(todoDiv);
+
+
+
+
 }
