@@ -124,3 +124,8 @@ select {
     background: white;
     color: #ff6f47;
 }
+
+.icon-check,
+.icon-trash {
+    pointer-events: none;
+}
