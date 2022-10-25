@@ -3,6 +3,7 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
+const todoErrorMessage = document.querySelector('.todo-error-message');
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', getTodos);
@@ -14,36 +15,48 @@ filterOption.addEventListener('click', filterTodo);
 function addTodo(event) {
     //Prevent form from submitting
     event.preventDefault();
-    //Todo DIV
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
-    todoDiv.classList.add('uncompleted');
-    //Create li
-    const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add('todo-item');
-    todoDiv.appendChild(newTodo);
 
-    // ADD TODO TO  LOCALSTORAGE
-    saveLocalTodos(todoInput.value);
+    if (
+        todoInput.value &&
+        todoInput.value.length >= 4 &&
+        todoInput.value.length < 30
+    ) {
+        //Todo DIV
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
+        todoDiv.classList.add('uncompleted');
 
-    //CHECK MARK BUTTON
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML = '<i class="icon-check"></i>';
-    completedButton.classList.add('complete-btn');
-    todoDiv.appendChild(completedButton);
+        //Create li
+        const newTodo = document.createElement('li');
+        newTodo.innerText = todoInput.value;
+        newTodo.classList.add('todo-item');
+        todoDiv.appendChild(newTodo);
 
-    //CHECK trash BUTTON
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML = '<i class="icon-trash"></i>';
-    trashButton.classList.add('trash-btn');
-    todoDiv.appendChild(trashButton);
+        // ADD TODO TO  LOCALSTORAGE
+        saveLocalTodos(todoInput.value);
 
-    //APPEND TO LIST
-    todoList.appendChild(todoDiv);
+        //CHECK MARK BUTTON
+        const completedButton = document.createElement('button');
+        completedButton.innerHTML = '<i class="icon-check"></i>';
+        completedButton.classList.add('complete-btn');
+        todoDiv.appendChild(completedButton);
 
-    // CLEAR TODO INPUT VALUE
-    todoInput.value = ' ';
+        //CHECK trash BUTTON
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = '<i class="icon-trash"></i>';
+        trashButton.classList.add('trash-btn');
+        todoDiv.appendChild(trashButton);
+
+        //APPEND TO LIST
+        todoList.appendChild(todoDiv);
+
+        // CLEAR TODO INPUT VALUE
+        todoInput.value = ' ';
+        todoErrorMessage.innerText = '';
+    } else {
+        todoErrorMessage.innerText = 'Too Few Lettres!';
+        todoErrorMessage.style.color = 'red';
+    }
 }
 function deleteCheck(e) {
     const item = e.target;
@@ -66,7 +79,6 @@ function deleteCheck(e) {
 
 function filterTodo(e) {
     const todos = todoList.childNodes;
-
     todos.forEach(getTodos);
 
     function getTodos(todo) {
@@ -134,7 +146,7 @@ function getTodos() {
         completedButton.innerHTML = '<i class="icon-check"></i>';
         completedButton.classList.add('complete-btn');
         todoDiv.appendChild(completedButton);
-        
+
         //CHECK trash BUTTON
         const trashButton = document.createElement('button');
         trashButton.innerHTML = '<i class="icon-trash"></i>';
