@@ -168,3 +168,22 @@ select {
         width: 100%;
     }
 }
+
+@media (max-width: 1050px) {
+    header h1 {
+        font-size: 35px;
+    }
+    form input {
+        width: calc(100% - 42px);
+    }
+    select {
+        width: calc(100% - 48px);
+    }
+    .select,
+    form span {
+        width: 100%;
+    }
+    .todo-container .todo-list {
+        width: 100%;
+    }
+}
