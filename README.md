@@ -10,3 +10,5 @@ In this capture you can see how look the todos when you enter them.
 ![Capture 5](https://user-images.githubusercontent.com/105125052/198894082-78380fea-bb5e-4977-9555-d226c6aba11f.JPG)
 ![Capture 6](https://user-images.githubusercontent.com/105125052/198894474-0e67a0c0-316d-4463-81cf-333e4516f97c.JPG)
 In the lasts three captures you can seen all todos, uncompleted todos and completed todos.
+![Capture 7](https://user-images.githubusercontent.com/105125052/199082128-3cf89d32-c82c-423b-9e08-1d409aa7cf6c.JPG)
+This application is available for phone,tablet and desktop.
