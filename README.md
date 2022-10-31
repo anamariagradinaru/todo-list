@@ -1,5 +1,5 @@
 # todo-list 
-This application is for make a list with all of your things to do in a period of time. '
+The application was created using FrontEnd Technologies like JavaScript,CSS and HTML and with help of it you can make a todo list. The purpose of the project is to learn JavaScript and isn't focused on UI.
 ![Capture 1](https://user-images.githubusercontent.com/105125052/198894074-c8e5c9e1-bb4d-4ee6-8225-2e0d045c6450.JPG)
 In first capture you can see the application overall. We have a space for write a todo and  a dropdown 
 ![capture 2](https://user-images.githubusercontent.com/105125052/198894224-8600c7fd-4910-4eaf-8f68-a0cb30c47458.JPG)
